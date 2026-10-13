@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOARE-CodePen Autonomous Builder Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-950 text-slate-100 min-h-screen font-sans antialiased">
+    <div class="max-w-7xl mx-auto p-6 space-y-6">
+        <!-- Header -->
+        <header class="flex items-center justify-between pb-6 border-b border-slate-800">
+            <div class="flex items-center space-x-3">
+                <span class="text-2xl">⚡</span>
+                <h1 class="text-2xl font-bold tracking-tight bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
+                    HOARE × CodePen Engine
+                </h1>
+            </div>
+            <div class="flex items-center space-x-2">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    Aegis Verified
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Left: Control Plane & Verification -->
+            <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-5 space-y-4 shadow-xl">
+                <h2 class="text-lg font-semibold text-slate-200 flex items-center justify-between">
+                    <span>HOARE Formal Verification</span>
+                    <span class="text-xs text-slate-500 font-mono">CSP Engine v2.0</span>
+                </h2>
+                <div class="bg-black/80 rounded-lg p-4 font-mono text-xs text-emerald-400 h-64 overflow-y-auto space-y-1 border border-slate-800">
+                    <p class="text-slate-500">[SYSTEM] Initializing HOARE Autonomous Control Plane...</p>
+                    <p class="text-slate-500">[AEGIS] Policy Boundaries Activated.</p>
+                    <p>[VERIFY] CSP Concurrency Analysis: PASSED (0 Deadlocks, 0 Race Conditions)</p>
+                    <p>[TELEMETRY] SimAI Bridge Established.</p>
+                    <p class="text-blue-400">[CODEPEN] Ready for Multi-File Block Compilation.</p>
+                </div>
+            </div>
+
+            <!-- Right: CodePen Workspace -->
+            <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-5 space-y-4 shadow-xl">
+                <h2 class="text-lg font-semibold text-slate-200 flex items-center justify-between">
+                    <span>Autonomous Project Sandbox</span>
+                    <span class="text-xs text-slate-500 font-mono">Live Target: hoare.ai</span>
+                </h2>
+                <div class="p-4 bg-slate-950 rounded-lg border border-slate-800 space-y-3">
+                    <div class="flex items-center justify-between text-xs text-slate-400">
+                        <span>App.tsx</span>
+                        <span class="text-emerald-400">● Compiled</span>
+                    </div>
+                    <pre class="text-xs font-mono text-slate-300 bg-black/40 p-3 rounded border border-slate-800/50"><code>export default function App() {
+  return (
+    &lt;div className="p-6 bg-indigo-600 text-white"&gt;
+      Autonomous Vibe Project Active
+    &lt;/div&gt;
+  );
+}</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
