@@ -53,7 +53,7 @@ export default function App() {
 
       <div style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', borderRight: '1px solid #1e293b' }}>
-          <div style={{ padding: '8px 16px', background: '#1e293b', fontSize: '12px', color: '#94a3b8' }}>App.tsx (Editable Code)</div>
+          <div style={{ padding: '8px 16px', background: '#1e1b4b', fontSize: '12px', color: '#94a3b8' }}>App.tsx (Editable Code)</div>
           <textarea
             value={code}
             onChange={(e) => setCode(e.target.value)}
@@ -74,7 +74,7 @@ export default function App() {
         </div>
 
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-          <div style={{ padding: '8px 16px', background: '#1e293b', fontSize: '12px', color: '#94a3b8' }}>Live Dynamic Output</div>
+          <div style={{ padding: '8px 16px', background: '#1e1b4b', fontSize: '12px', color: '#94a3b8' }}>Live Dynamic Output</div>
           <iframe
             srcDoc={output}
             title="preview"
