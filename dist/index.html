@@ -1,66 +1,73 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOARE-CodePen Autonomous Builder Platform</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="HOARE-CodePen project editor with an isolated local preview.">
+  <title>HOARE-CodePen Autonomous Builder Platform</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-950 text-slate-100 min-h-screen font-sans antialiased">
-    <div class="max-w-7xl mx-auto p-6 space-y-6">
-        <!-- Header -->
-        <header class="flex items-center justify-between pb-6 border-b border-slate-800">
-            <div class="flex items-center space-x-3">
-                <span class="text-2xl">⚡</span>
-                <h1 class="text-2xl font-bold tracking-tight bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
-                    HOARE × CodePen Engine
-                </h1>
-            </div>
-            <div class="flex items-center space-x-2">
-                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                    Aegis Verified
-                </span>
-            </div>
-        </header>
+<body class="min-h-screen bg-slate-950 text-slate-100 antialiased">
+  <main class="mx-auto max-w-7xl space-y-6 p-4 sm:p-6">
+    <header class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-5">
+      <div>
+        <p class="text-sm font-semibold tracking-wide text-cyan-300">HOARE × CodePen Engine</p>
+        <h1 class="mt-1 text-2xl font-bold sm:text-3xl">Autonomous Project Builder</h1>
+        <p class="mt-2 max-w-2xl text-sm text-slate-400">Edit a frontend prototype and inspect it in an isolated preview. Project planning, HOARE admission, and deployment are separate steps.</p>
+      </div>
+      <span class="rounded-full border border-amber-400/40 bg-amber-400/10 px-3 py-1.5 text-xs font-medium text-amber-200" role="status">Local preview only · HOARE admission pending</span>
+    </header>
 
-        <!-- Main Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <!-- Left: Control Plane & Verification -->
-            <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-5 space-y-4 shadow-xl">
-                <h2 class="text-lg font-semibold text-slate-200 flex items-center justify-between">
-                    <span>HOARE Formal Verification</span>
-                    <span class="text-xs text-slate-500 font-mono">CSP Engine v2.0</span>
-                </h2>
-                <div class="bg-black/80 rounded-lg p-4 font-mono text-xs text-emerald-400 h-64 overflow-y-auto space-y-1 border border-slate-800">
-                    <p class="text-slate-500">[SYSTEM] Initializing HOARE Autonomous Control Plane...</p>
-                    <p class="text-slate-500">[AEGIS] Policy Boundaries Activated.</p>
-                    <p>[VERIFY] CSP Concurrency Analysis: PASSED (0 Deadlocks, 0 Race Conditions)</p>
-                    <p>[TELEMETRY] SimAI Bridge Established.</p>
-                    <p class="text-blue-400">[CODEPEN] Ready for Multi-File Block Compilation.</p>
-                </div>
-            </div>
-
-            <!-- Right: CodePen Workspace -->
-            <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-5 space-y-4 shadow-xl">
-                <h2 class="text-lg font-semibold text-slate-200 flex items-center justify-between">
-                    <span>Autonomous Project Sandbox</span>
-                    <span class="text-xs text-slate-500 font-mono">Live Target: hoare.ai</span>
-                </h2>
-                <div class="p-4 bg-slate-950 rounded-lg border border-slate-800 space-y-3">
-                    <div class="flex items-center justify-between text-xs text-slate-400">
-                        <span>App.tsx</span>
-                        <span class="text-emerald-400">● Compiled</span>
-                    </div>
-                    <pre class="text-xs font-mono text-slate-300 bg-black/40 p-3 rounded border border-slate-800/50"><code>export default function App() {
-  return (
-    &lt;div className="p-6 bg-indigo-600 text-white"&gt;
-      Autonomous Vibe Project Active
-    &lt;/div&gt;
-  );
-}</code></pre>
-                </div>
-            </div>
+    <section class="grid grid-cols-1 gap-5 lg:grid-cols-2" aria-label="Code editor and preview">
+      <div class="overflow-hidden rounded-xl border border-slate-800 bg-slate-900">
+        <div class="flex items-center justify-between border-b border-slate-800 px-4 py-3">
+          <label for="source" class="font-mono text-sm font-semibold">index.html</label>
+          <button id="reset" type="button" class="rounded-md border border-slate-700 px-3 py-1.5 text-xs hover:bg-slate-800">Reset example</button>
         </div>
-    </div>
+        <textarea id="source" spellcheck="false" aria-label="Editable HTML source" class="min-h-[24rem] w-full resize-y bg-slate-950 p-4 font-mono text-sm leading-6 text-cyan-50 outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-400"></textarea>
+        <div class="flex flex-wrap items-center justify-between gap-3 border-t border-slate-800 px-4 py-3">
+          <p class="text-xs text-slate-400">HTML prototype · edits stay in this browser tab</p>
+          <button id="refresh" type="button" class="rounded-md bg-cyan-300 px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-cyan-200">Refresh preview</button>
+        </div>
+      </div>
+
+      <div class="overflow-hidden rounded-xl border border-slate-800 bg-slate-900">
+        <div class="flex items-center justify-between border-b border-slate-800 px-4 py-3">
+          <h2 class="font-semibold">Isolated preview</h2>
+          <span class="text-xs text-slate-400">No deployment triggered</span>
+        </div>
+        <iframe id="preview" title="Local HTML prototype preview" sandbox="allow-scripts" class="min-h-[28rem] w-full bg-white" referrerpolicy="no-referrer"></iframe>
+        <p class="border-t border-slate-800 px-4 py-3 text-xs text-slate-400">Preview code is untrusted and sandboxed. This page does not call a build, cloud, or HOARE-CORE execution endpoint.</p>
+      </div>
+    </section>
+
+    <section class="rounded-xl border border-slate-800 bg-slate-900/60 p-4 sm:p-5" aria-labelledby="lifecycle-title">
+      <h2 id="lifecycle-title" class="font-semibold">Governed project lifecycle</h2>
+      <ol class="mt-3 grid grid-cols-1 gap-3 text-sm sm:grid-cols-2 lg:grid-cols-4">
+        <li class="rounded-lg border border-slate-800 p-3"><span class="text-cyan-300">01</span><p class="mt-1 font-medium">Describe and plan</p><p class="mt-1 text-xs text-slate-400">Define project type, requirements and target.</p></li>
+        <li class="rounded-lg border border-slate-800 p-3"><span class="text-cyan-300">02</span><p class="mt-1 font-medium">Build and test</p><p class="mt-1 text-xs text-slate-400">Generate artifacts and verify them in a controlled workspace.</p></li>
+        <li class="rounded-lg border border-slate-800 p-3"><span class="text-amber-300">03</span><p class="mt-1 font-medium">HOARE admission</p><p class="mt-1 text-xs text-slate-400">Requires a verified identity, tenant scope and policy decision.</p></li>
+        <li class="rounded-lg border border-slate-800 p-3"><span class="text-slate-300">04</span><p class="mt-1 font-medium">Execute and record</p><p class="mt-1 text-xs text-slate-400">A supported runner reports actual results and evidence.</p></li>
+      </ol>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      const initial = '<!doctype html>\n<html lang="en">\n<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>My prototype</title></head>\n<body style="font-family:system-ui,sans-serif;padding:2rem;color:#0f172a">\n  <p style="color:#0891b2;font-weight:700">HOARE-CodePen local prototype</p>\n  <h1>Hello, project builder!</h1>\n  <p>Edit this HTML on the left, then refresh the preview.</p>\n  <button id="hello">Try interaction</button>\n  <p id="message"></p>\n  <script>document.getElementById("hello").addEventListener("click",function(){document.getElementById("message").textContent="Preview interaction works."});<\/script>\n</body>\n</html>';
+      const editor = document.getElementById('source');
+      const preview = document.getElementById('preview');
+      function render() {
+        preview.srcdoc = editor.value;
+      }
+      editor.value = initial;
+      render();
+      document.getElementById('refresh').addEventListener('click', render);
+      document.getElementById('reset').addEventListener('click', function () {
+        editor.value = initial;
+        render();
+      });
+    }());
+  </script>
 </body>
 </html>
