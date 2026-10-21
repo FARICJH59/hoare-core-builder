@@ -111,3 +111,9 @@ The inspected CodePen app is an editor with an iframe preview. Its source did no
 The current `tech-fusion-grid-ui` branch already has a narrower `project.toml` build contract and a generated `hoare.build-manifest/v0.1`. Reuse that as the build/package contract for the existing Next.js application. Do not silently repurpose it as the universal intent/project schema: its current fields describe a specific Next.js build, OCI artifact, runtime, provenance, and deployment-target capabilities.
 
 The universal project-factory manifest should reference a versioned build profile or artifact contract. Project-type-specific build profiles (for example ML, IoT, or frontend) can then coexist without making the control plane depend on one framework. Where the current build manifest records a source revision and dirty-tree flag, retain those provenance checks; do not treat the manifest's `aegis` booleans as an admission receipt or authorization token.
+
+## Existing HOARE factory API candidates (reviewed 2026-10-21)
+
+The current `tech-fusion-grid-ui` branch contains `/api/hoare/factory`, `/api/hoare/factory/execute`, and `/api/hoare/factory/materialize`, as well as a separate builder execution route that uses `TrustedGatewayIdentityAdapter`. The CodePen app in this repository does not call these endpoints today.
+
+Source review found no route-local authentication/admission check in the factory execute/materialize handlers. This does not by itself prove external reachability because deployment-level gateway controls still need to be checked. The security review is tracked in [tech-fusion-grid-ui issue #119](https://github.com/FARICJH59/tech-fusion-grid-ui/issues/119). Do not connect the browser builder to execute/materialize until the route protection, authenticated tenant derivation, and existing HOARE-CORE/AEGIS admission boundary are verified. Reuse the existing API only after that review; do not create a parallel authority service.
