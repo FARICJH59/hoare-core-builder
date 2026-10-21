@@ -105,3 +105,9 @@ Generation, preview, planning, diagnosis, and passing tests do not themselves au
 ## Current verified limitation
 
 The inspected CodePen app is an editor with an iframe preview. Its source did not demonstrate a HOARE-CORE authorization call. The inspected `tech-fusion-grid-ui` provider registry used dry-run adapters for Google Cloud, bare-metal, and edge; its deployment endpoint described planning rather than live execution. These facts are the baseline for implementation, not a claim that other repositories or deployment environments have no additional functionality.
+
+## Existing build-contract compatibility
+
+The current `tech-fusion-grid-ui` branch already has a narrower `project.toml` build contract and a generated `hoare.build-manifest/v0.1`. Reuse that as the build/package contract for the existing Next.js application. Do not silently repurpose it as the universal intent/project schema: its current fields describe a specific Next.js build, OCI artifact, runtime, provenance, and deployment-target capabilities.
+
+The universal project-factory manifest should reference a versioned build profile or artifact contract. Project-type-specific build profiles (for example ML, IoT, or frontend) can then coexist without making the control plane depend on one framework. Where the current build manifest records a source revision and dirty-tree flag, retain those provenance checks; do not treat the manifest's `aegis` booleans as an admission receipt or authorization token.
