@@ -46,9 +46,9 @@ export default function App() {
       <header style={{ padding: '12px 20px', borderBottom: '1px solid #1e293b', background: '#0f172a', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div>
           <span style={{ fontWeight: 'bold', color: '#818cf8' }}>⚡ HOARE × CodePen Engine v2.0</span>
-          <span style={{ marginLeft: '12px', fontSize: '12px', background: '#1e1b4b', color: '#a5b4fc', padding: '2px 8px', borderRadius: '4px' }}>Aegis Verified</span>
+          <span style={{ marginLeft: '12px', fontSize: '12px', background: '#1e1b4b', color: '#a5b4fc', padding: '2px 8px', borderRadius: '4px' }}>Preview Sandbox · AEGIS Not Connected</span>
         </div>
-        <div style={{ fontSize: '12px', color: '#4ade80' }}>● Live Execution Enabled</div>
+        <div style={{ fontSize: '12px', color: '#4ade80' }}>● Live Preview · User Code Is Untrusted</div>
       </header>
 
       <div style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
